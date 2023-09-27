@@ -6,7 +6,22 @@ services:
   server_config: {}
 package_name: Implementation_Resourcing
 allow_embedding: false
-name: Clone of Implementation Resourcing
+name: Blending Problem
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-metadata: {title: Implementation Resourcing}
+metadata: {title: Blending Problem}
 startup_form: Form1
+db_schema:
+  ingredients:
+    client: full
+    server: full
+    columns:
+    - name: Ingredient
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: Cost
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: Availability
+      admin_ui: {width: 200, order: 2}
+      type: number
+    title: Ingredients
