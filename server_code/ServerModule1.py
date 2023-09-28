@@ -1,3 +1,4 @@
+import anvil.email
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
@@ -62,17 +63,20 @@ def ingredients():
   # print decision variables
       decisions= {}
       ingred = ''
+      ingredsum =''
       for var in ing_weight:
           var_value = ing_weight[var].varValue
           print ("The weight of {0} in {1} sausages is {2} kg".format(var[1], var[0], var_value))
           print(ing_weight[var], ing_weight[var].varValue)
           # decisions.append(ing_weight[var].varValue)
-          decisions.update({ing_weight[var]:ing_weight[var].varValue}) 
+          decisions.update({ing_weight[var]:ing_weight[var].varValue})
+          ingred = (("The weight of {0} in {1} sausages is {2} kg".format(var[1], var[0], var_value)) +'\n')
+          ingredsum = ingredsum + ingred
       print(' as built',decisions)
-      ingred = (("The weight of {0} in {1} sausages is {2} kg".format(var[1], var[0], var_value)))
-      # return decisions
+      # ingred = (("The weight of {0} in {1} sausages is {2} kg".format(var[1], var[0], var_value)))
+      # ingredsum = ingredsum + ingred
       total_cost = pulp.value(model.objective)
-     
+ 
     
       print ("The total cost is €{} for 350 economy sausages and 500 premium sausages".format(round(total_cost, 2)))
       answer = ("The total cost is €{} for 350 economy sausages and 500 premium sausages".format(round(total_cost, 2)))
@@ -80,7 +84,7 @@ def ingredients():
       # print("Keys:", list(ing_weight.keys()))
       # print("Values:", list(ing_weight.values()))
       # Printing a dictionary using a loop and the items() method
-      return ingred, answer
+      return ingredsum, answer
       # for key, value in ing_weight.items():
       #     print(key, ":", value)
       # print (decisions)
@@ -89,3 +93,18 @@ def ingredients():
       # # decisions= df.to_dict(orient='records')
       # print (decisions)
       # return ingred, decisions
+
+@anvil.server.callable
+def spreadsheet():
+    import openpyxl
+    from openpyxl import Workbook
+    
+    filename = "hello_world.xlsx"
+    
+    workbook = Workbook()
+    sheet = workbook.active
+    
+    sheet["A1"] = "hello"
+    sheet["B1"] = "world!"
+    
+    workbook.save(filename=filename)

@@ -19,5 +19,12 @@ class Form1(Form1Template):
     
     pass
 
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.server.call('spreadsheet')
+    
+    pass
+
+
 
 
