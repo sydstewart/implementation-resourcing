@@ -68,21 +68,22 @@ def ingredients():
           print(ing_weight[var], ing_weight[var].varValue)
           # decisions.append(ing_weight[var].varValue)
           decisions.update({ing_weight[var]:ing_weight[var].varValue}) 
-
-  
+      print(' as built',decisions)
+      # return decisions
       total_cost = pulp.value(model.objective)
 
       print ("The total cost is €{} for 350 economy sausages and 500 premium sausages".format(round(total_cost, 2)))
 
       # Printing keys and values separately
-      print("Keys:", list(ing_weight.keys()))
-      print("Values:", list(ing_weight.values()))
+      # print("Keys:", list(ing_weight.keys()))
+      # print("Values:", list(ing_weight.values()))
       # Printing a dictionary using a loop and the items() method
      
-      for key, value in ing_weight.items():
-          print(key, ":", value)
-      # print(ing_weight)
-      # df = pd.DataFrame.from_dict(decisions)
-      # decisions= df.to_dict(orient='records')
-      print (decisions)
-      return decisions
+      # for key, value in ing_weight.items():
+      #     print(key, ":", value)
+      # print (decisions)
+      # df = pd.DataFrame(decisions)
+      # print(df)
+      # # decisions= df.to_dict(orient='records')
+      # print (decisions)
+      # return decisions
