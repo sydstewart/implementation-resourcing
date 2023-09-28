@@ -50,6 +50,10 @@ components:
     name: button_1
     layout_properties: {grid_position: 'XZNHTP,LFCXCY'}
     event_bindings: {click: button_1_click}
+  - type: Label
+    properties: {}
+    name: label_1
+    layout_properties: {grid_position: 'QDGVLT,QXEVPX'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

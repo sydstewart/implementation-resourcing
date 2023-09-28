@@ -61,25 +61,26 @@ def ingredients():
 
   # print decision variables
       decisions= {}
+      ingred = ''
       for var in ing_weight:
           var_value = ing_weight[var].varValue
           print ("The weight of {0} in {1} sausages is {2} kg".format(var[1], var[0], var_value))
-          
           print(ing_weight[var], ing_weight[var].varValue)
           # decisions.append(ing_weight[var].varValue)
           decisions.update({ing_weight[var]:ing_weight[var].varValue}) 
       print(' as built',decisions)
+      ingred = (("The weight of {0} in {1} sausages is {2} kg".format(var[1], var[0], var_value)))
       # return decisions
       total_cost = pulp.value(model.objective)
      
     
       print ("The total cost is €{} for 350 economy sausages and 500 premium sausages".format(round(total_cost, 2)))
-
+      answer = ("The total cost is €{} for 350 economy sausages and 500 premium sausages".format(round(total_cost, 2)))
       # Printing keys and values separately
       # print("Keys:", list(ing_weight.keys()))
       # print("Values:", list(ing_weight.values()))
       # Printing a dictionary using a loop and the items() method
-     
+      return ingred, answer
       # for key, value in ing_weight.items():
       #     print(key, ":", value)
       # print (decisions)
@@ -87,4 +88,4 @@ def ingredients():
       # print(df)
       # # decisions= df.to_dict(orient='records')
       # print (decisions)
-      # return decisions
+      # return ingred, decisions
