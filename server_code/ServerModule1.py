@@ -60,15 +60,15 @@ def ingredients():
       pulp.LpStatus[model.status]
 
   # print decision variables
-      decisions= []
+      decisions= {}
       for var in ing_weight:
           var_value = ing_weight[var].varValue
           print ("The weight of {0} in {1} sausages is {2} kg".format(var[1], var[0], var_value))
           
-          print(ing_weight[var].varValue)
-          decisions.append(ing_weight[var].varValue)
-           
-          
+          print(ing_weight[var], ing_weight[var].varValue)
+          # decisions.append(ing_weight[var].varValue)
+          decisions.update({ing_weight[var]:ing_weight[var].varValue}) 
+
   
       total_cost = pulp.value(model.objective)
 
@@ -81,7 +81,8 @@ def ingredients():
      
       for key, value in ing_weight.items():
           print(key, ":", value)
-
-      decisions = pd.DataFrame([ing_weight])
+      # print(ing_weight)
+      # df = pd.DataFrame.from_dict(decisions)
+      # decisions= df.to_dict(orient='records')
       print (decisions)
       return decisions
