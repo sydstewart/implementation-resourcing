@@ -71,7 +71,8 @@ def ingredients():
       print(' as built',decisions)
       # return decisions
       total_cost = pulp.value(model.objective)
-
+     
+    
       print ("The total cost is €{} for 350 economy sausages and 500 premium sausages".format(round(total_cost, 2)))
 
       # Printing keys and values separately
