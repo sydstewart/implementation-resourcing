@@ -110,3 +110,55 @@ def spreadsheet():
     sheet["B1"] = "world!"
     
     workbook.save(filename=filename)
+
+
+@anvil.server.callable
+def resources():
+
+  resources = ['PreReqs','Interfacing','System Config', 'Installing']  # j
+  project_type = ['Systems','Standalone Interfaces','Server Moves', 'Upgrades']   #i
+    
+# Each of these decision variables will have similar characteristics
+# (lower bound of 0, continuous variables). Therefore we can use PuLP’s LpVariable object’s dict functionality, we can provide our tuple indices.
+# 6 decision variables
+  project_resource = pulp.LpVariable.dicts("days_work",
+                                          ((i, j) for i in project_types for j in resources),
+                                          lowBound=0,
+                                          cat='Continuous')
+
+# Objective Function
+  model += (pulp.lpSum([
+                   project_resource[(i, 'PreReqs')]
+                    + project_resource[(i, 'Interfacing')]
+                    + project_resource[(i, 'System Config')]
+                    + project_resource[(i, 'Installing')]
+                    for i in project_types]))   
+
+   # Constraints
+      # 350 economy and 500 premium sausages at 0.05 kg i.e. 50g
+  model += pulp.lpSum([ing_weight['economy', j] for j in ingredients]) == 350 * 0.05
+      model += pulp.lpSum([ing_weight['premium', j] for j in ingredients]) == 500 * 0.05
+      
+      # Economy has >= 40% pork, premium >= 60% pork
+      model += ing_weight['economy', 'pork'] >= (
+          0.4 * pulp.lpSum([ing_weight['economy', j] for j in ingredients]))
+      model += ing_weight['premium', 'pork'] >= (
+          0.6 * pulp.lpSum([ing_weight['premium', j] for j in ingredients]))
+      
+      # Sausages must be <= 25% starch
+      model += ing_weight['economy', 'starch'] <= (
+          0.25 * pulp.lpSum([ing_weight['economy', j] for j in ingredients]))
+      model += ing_weight['premium', 'starch'] <= (
+          0.25 * pulp.lpSum([ing_weight['premium', j] for j in ingredients]))
+      
+      # We have at most 30 kg of pork, 20 kg of wheat and 17 kg of starch available
+      model += pulp.lpSum([ing_weight[i, 'pork'] for i in sausage_types]) <= 30
+      model += pulp.lpSum([ing_weight[i, 'wheat'] for i in sausage_types]) <= 20
+      model += pulp.lpSum([ing_weight[i, 'starch'] for i in sausage_types]) <= 17
+      
+      # We have at least 23 kg of pork to use up
+      model += pulp.lpSum([ing_weight[i, 'pork'] for i in sausage_types]) >= 23
+            
+      # Solve our problem
+      model.solve()
+      pulp.LpStatus[model.status]
