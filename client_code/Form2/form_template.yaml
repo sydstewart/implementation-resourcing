@@ -15,6 +15,29 @@ components:
       italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_1
     layout_properties: {grid_position: 'JYTRTY,LVYPQX', full_width_row: true}
+  - type: DropDown
+    properties:
+      role: null
+      align: full
+      tooltip: ''
+      placeholder: ''
+      border: ''
+      enabled: true
+      foreground: ''
+      items: []
+      visible: true
+      font_size: null
+      font: ''
+      spacing_above: small
+      spacing_below: small
+      italic: false
+      background: ''
+      bold: false
+      underline: false
+      include_placeholder: true
+    name: scenario_dropdown
+    layout_properties: {grid_position: 'JYTRTY,TVABLX', full_width_row: true}
+    event_bindings: {change: scenario_dropdown_change}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
@@ -44,7 +67,10 @@ components:
       name: label_3
       layout_properties: {grid_position: 'UEKAGA,MGECFQ'}
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: Sys_PR
       layout_properties: {grid_position: 'UEKAGA,JVUYOU'}
     - type: Label
@@ -55,7 +81,10 @@ components:
       name: label_4
       layout_properties: {grid_position: 'SRUSLR,YAFXJP'}
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: Sys_Int
       layout_properties: {grid_position: 'SRUSLR,USNEXM'}
     - type: Label
@@ -66,7 +95,10 @@ components:
       name: label_4_copy_4
       layout_properties: {grid_position: 'ELADXS,PZAFPI'}
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: Sys_Sys
       layout_properties: {grid_position: 'ELADXS,JAWWXG'}
     - type: Label
@@ -77,7 +109,10 @@ components:
       name: label_4_copy_5
       layout_properties: {grid_position: 'EJXULM,GTMLNM'}
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: Sys_Ins
       layout_properties: {grid_position: 'EJXULM,PLQXIL'}
   - type: ColumnPanel
@@ -110,7 +145,10 @@ components:
         name: label_3_copy
         layout_properties: {grid_position: 'UEKAGA,MGECFQ'}
       - type: TextBox
-        properties: {}
+        properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
         name: SI_PR
         layout_properties: {grid_position: 'UEKAGA,JVUYOU'}
       - type: Label
@@ -121,7 +159,10 @@ components:
         name: label_4_copy
         layout_properties: {grid_position: 'SRUSLR,YAFXJP'}
       - type: TextBox
-        properties: {}
+        properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
         name: SI_Int
         layout_properties: {grid_position: 'SRUSLR,USNEXM'}
       - type: Label
@@ -134,7 +175,10 @@ components:
           col_widths: {}
           grid_position: RKXUFH,UYLCZF
       - type: TextBox
-        properties: {}
+        properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
         name: SI_Sys
         layout_properties:
           col_widths: {}
@@ -149,7 +193,10 @@ components:
           col_widths: {}
           grid_position: RSWOXN,HOELUO
       - type: TextBox
-        properties: {}
+        properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
         name: SI_Ins
         layout_properties:
           col_widths: {}
