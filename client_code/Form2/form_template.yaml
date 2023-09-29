@@ -1,0 +1,45 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: Label
+    properties: {}
+    name: label_1
+    layout_properties: {grid_position: 'MEQRGG,GUMSAM'}
+  - type: DataGrid
+    properties:
+      role: null
+      columns:
+      - {id: EOBQIE, title: Resources, data_key: column_1, $$hashKey: 'object:4580'}
+      - {id: ODUOEP, title: Systems, data_key: column_2, $$hashKey: 'object:4581'}
+      - {id: DBHFNA, title: Standalone Interfaces, data_key: column_3, $$hashKey: 'object:4582'}
+      - {id: TTSTBU, title: Server Moves, data_key: column_4, $$hashKey: 'object:4616'}
+      - {id: QAKGIN, title: Upgrades, data_key: column_5, $$hashKey: 'object:4618'}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_1
+    layout_properties: {grid_position: 'AICVVG,AYYYVC'}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: Form2.RowTemplate3}
+      name: repeating_panel_1
+      layout_properties: {}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
