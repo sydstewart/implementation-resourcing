@@ -150,3 +150,17 @@ db_schema:
       admin_ui: {width: 200, order: 2}
       type: number
     title: Ingredients
+  days_effort:
+    client: none
+    server: full
+    columns:
+    - name: projects
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: Interfacing
+      admin_ui: {width: 200, order: 2}
+      type: number
+    - name: Installing
+      admin_ui: {width: 200, order: 3}
+      type: number
+    title: Days_Effort
