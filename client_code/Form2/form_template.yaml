@@ -9,36 +9,303 @@ components:
   layout_properties: {slot: default}
   components:
   - type: Label
-    properties: {}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Days Effort Required for each resource type to Complete Project,
+      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '', bold: true, underline: false, icon: ''}
     name: label_1
-    layout_properties: {grid_position: 'MEQRGG,GUMSAM'}
-  - type: DataGrid
-    properties:
-      role: null
-      columns:
-      - {id: EOBQIE, title: Resources, data_key: column_1, $$hashKey: 'object:4580'}
-      - {id: ODUOEP, title: Systems, data_key: column_2, $$hashKey: 'object:4581'}
-      - {id: DBHFNA, title: Standalone Interfaces, data_key: column_3, $$hashKey: 'object:4582'}
-      - {id: TTSTBU, title: Server Moves, data_key: column_4, $$hashKey: 'object:4616'}
-      - {id: QAKGIN, title: Upgrades, data_key: column_5, $$hashKey: 'object:4618'}
-      auto_header: true
-      tooltip: ''
-      border: ''
-      foreground: ''
-      rows_per_page: 20
-      visible: true
-      wrap_on: never
-      show_page_controls: true
-      spacing_above: small
-      spacing_below: small
-      background: ''
-    name: data_grid_1
-    layout_properties: {grid_position: 'AICVVG,AYYYVC'}
+    layout_properties: {grid_position: 'JYTRTY,LVYPQX', full_width_row: true}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_5
+    layout_properties: {grid_position: 'JYTRTY,FIFGOB', full_width_row: true}
+  - type: ColumnPanel
+    properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: card_1
+    layout_properties: {grid_position: 'BZQYPY,SHXIEL', full_width_row: true}
     components:
-    - type: RepeatingPanel
-      properties: {spacing_above: none, spacing_below: none, item_template: Form2.RowTemplate3}
-      name: repeating_panel_1
-      layout_properties: {}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Systems, font_size: 16, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_2
+      layout_properties: {grid_position: 'MHKZJS,TTWJQE'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: PreReqs, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_3
+      layout_properties: {grid_position: 'UEKAGA,MGECFQ'}
+    - type: TextBox
+      properties: {}
+      name: text_box_1
+      layout_properties: {grid_position: 'UEKAGA,JVUYOU'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Interfacing, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_4
+      layout_properties: {grid_position: 'SRUSLR,YAFXJP'}
+    - type: TextBox
+      properties: {}
+      name: text_box_2
+      layout_properties: {grid_position: 'SRUSLR,USNEXM'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: System Config, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_4_copy_4
+      layout_properties: {grid_position: 'ELADXS,PZAFPI'}
+    - type: TextBox
+      properties: {}
+      name: text_box_2_copy_4
+      layout_properties: {grid_position: 'ELADXS,JAWWXG'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Installing, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_4_copy_5
+      layout_properties: {grid_position: 'EJXULM,GTMLNM'}
+    - type: TextBox
+      properties: {}
+      name: text_box_2_copy_5
+      layout_properties: {grid_position: 'EJXULM,PLQXIL'}
+  - type: ColumnPanel
+    properties: {}
+    name: column_panel_4
+    layout_properties: {grid_position: 'BZQYPY,YMENPR', full_width_row: true}
+    components:
+    - type: ColumnPanel
+      properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: card_1_copy
+      layout_properties:
+        col_widths: {}
+        grid_position: YMXAXO,FYGBMG
+        full_width_row: true
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Standalone Interfaces, font_size: 16, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_2_copy
+        layout_properties: {grid_position: 'MHKZJS,TTWJQE'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: PreReqs, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_3_copy
+        layout_properties: {grid_position: 'UEKAGA,MGECFQ'}
+      - type: TextBox
+        properties: {}
+        name: text_box_1_copy
+        layout_properties: {grid_position: 'UEKAGA,JVUYOU'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Interfacing, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4_copy
+        layout_properties: {grid_position: 'SRUSLR,YAFXJP'}
+      - type: TextBox
+        properties: {}
+        name: text_box_2_copy
+        layout_properties: {grid_position: 'SRUSLR,USNEXM'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: System Config, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4_copy_6
+        layout_properties:
+          col_widths: {}
+          grid_position: RKXUFH,UYLCZF
+      - type: TextBox
+        properties: {}
+        name: text_box_2_copy_7
+        layout_properties:
+          col_widths: {}
+          grid_position: RKXUFH,UXCUZM
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Installing, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4_copy_7
+        layout_properties:
+          col_widths: {}
+          grid_position: RSWOXN,HOELUO
+      - type: TextBox
+        properties: {}
+        name: text_box_2_copy_6
+        layout_properties:
+          col_widths: {}
+          grid_position: RSWOXN,QQLUXK
+          full_width_row: true
+        event_bindings: {pressed_enter: text_box_2_copy_6_pressed_enter}
+  - type: ColumnPanel
+    properties: {}
+    name: column_panel_3
+    layout_properties: {grid_position: 'BZQYPY,CELVYP', full_width_row: true}
+    components:
+    - type: ColumnPanel
+      properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: card_1_copy_2
+      layout_properties:
+        col_widths: {}
+        grid_position: MGHYLC,WGQWCV
+        full_width_row: true
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Server Moves, font_size: 16, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_2_copy_2
+        layout_properties: {grid_position: 'MHKZJS,CKJFPB'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: PreReqs, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_3_copy_2
+        layout_properties: {grid_position: 'UEKAGA,MGECFQ'}
+      - type: TextBox
+        properties: {}
+        name: text_box_1_copy_2
+        layout_properties: {grid_position: 'UEKAGA,JVUYOU'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Interfacing, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4_copy_2
+        layout_properties: {grid_position: 'SRUSLR,YAFXJP'}
+      - type: TextBox
+        properties: {}
+        name: text_box_2_copy_2
+        layout_properties: {grid_position: 'SRUSLR,USNEXM'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: System Config, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4_copy_8
+        layout_properties:
+          col_widths: {}
+          grid_position: SPLJKU,NPWXOV
+      - type: TextBox
+        properties: {}
+        name: text_box_2_copy_8
+        layout_properties:
+          col_widths: {}
+          grid_position: SPLJKU,HWXSGG
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Installing, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4_copy_9
+        layout_properties:
+          col_widths: {}
+          grid_position: QMWIHZ,QEAZSX
+      - type: TextBox
+        properties: {}
+        name: text_box_2_copy_9
+        layout_properties:
+          col_widths: {}
+          grid_position: QMWIHZ,ZALUXO
+          full_width_row: true
+  - type: ColumnPanel
+    properties: {}
+    name: column_panel_2
+    layout_properties: {grid_position: 'BZQYPY,QSXTEE'}
+    components:
+    - type: ColumnPanel
+      properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: card_1_copy_3
+      layout_properties:
+        col_widths: {}
+        grid_position: WIHMHM,HEXLGB
+        full_width_row: true
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Upgrades, font_size: 16, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_2_copy_3
+        layout_properties: {grid_position: 'MHKZJS,TTWJQE'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: PreReqs, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_3_copy_3
+        layout_properties: {grid_position: 'UEKAGA,MGECFQ'}
+      - type: TextBox
+        properties: {}
+        name: text_box_1_copy_3
+        layout_properties: {grid_position: 'UEKAGA,JVUYOU'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Interfacing, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4_copy_3
+        layout_properties: {grid_position: 'SRUSLR,YAFXJP'}
+      - type: TextBox
+        properties: {}
+        name: text_box_2_copy_3
+        layout_properties: {grid_position: 'SRUSLR,USNEXM'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: System Config, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4_copy_10
+        layout_properties:
+          col_widths: {}
+          grid_position: KCLPEX,QOBWJI
+      - type: TextBox
+        properties: {}
+        name: text_box_2_copy_10
+        layout_properties:
+          col_widths: {}
+          grid_position: KCLPEX,AERRWL
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Installing, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4_copy_11
+        layout_properties:
+          col_widths: {}
+          grid_position: JTPIUS,LACNPE
+      - type: TextBox
+        properties: {}
+        name: text_box_2_copy_11
+        layout_properties:
+          col_widths: {}
+          grid_position: JTPIUS,PPBAPW
+          full_width_row: true
 - type: FlowPanel
   properties: {}
   name: navbar_links
