@@ -7,7 +7,7 @@ from anvil.tables import app_tables
 import anvil.server
 import pandas as pd
 import pulp
-
+from pulp import *
 @anvil.server.callable
 def ingredients():
       # Instantiate our problem class
@@ -170,13 +170,13 @@ def resources():
 @anvil.server.callable
 def calculate_projects(Scenario):
 
-  # problem = LpProblem('No of Projects', LpMaximize)
+  model= LpProblem('No of Projects', LpMaximize)
   
   # Construct decision variables
-  # A = LpVariable('Systems', lowBound=0 , cat=LpInteger)
-  # B = LpVariable('Standalone Interfaces', lowBound=0 , cat=LpInteger)
-  # C = LpVariable('Server Moves', lowBound=0 , cat=LpInteger)
-  # D = LpVariable('Upgrades', lowBound=0 , cat=LpInteger)
+  A = LpVariable('Systems', lowBound=0 , cat=LpInteger)
+  B = LpVariable('Standalone Interfaces', lowBound=0 , cat=LpInteger)
+  C = LpVariable('Server Moves', lowBound=0 , cat=LpInteger)
+  D = LpVariable('Upgrades', lowBound=0 , cat=LpInteger)
   
   
   #Objective Function
@@ -201,5 +201,9 @@ def calculate_projects(Scenario):
   print(systems_selling_price['Selling_price'])
   Upgrades_Selling_Price = systems_selling_price['Selling_price']
 
-  
-  problem += Systems_Selling_Price*A + Standalone_Interfaces_Selling_Price*B  , 'Objective Function'
+  # A = 1
+  # B = 1
+  # C= 1
+  # D = 1
+  model += Systems_Selling_Price*A + Standalone_Interfaces_Selling_Price*B + Server_Moves_Selling_Price*C + Upgrades_Selling_Price*D  #'Objective Function'
+  # print('Problem', m)
