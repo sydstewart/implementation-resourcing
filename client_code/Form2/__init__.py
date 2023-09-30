@@ -76,6 +76,50 @@ class Form2(Form2Template):
         self.SI_Int.text = row['Interfacing']
         self.SI_Sys.text = row['System_config']
         self.SI_Ins.text = row['Installing']
+        
+      if row['projects'] == 'Server Moves':
+        self.SM_PR.text = row['PreReqs']
+        self.SM_Int.text = row['Interfacing']
+        self.SM_Sys.text = row['System_config']
+        self.SM_Ins.text = row['Installing']
+        
+      if row['projects'] == 'Upgrades':
+        self.UP_PR.text = row['PreReqs']
+        self.UP_Int.text = row['Interfacing']
+        self.UP_Sys.text = row['System_config']
+        self.UP_Ins.text = row['Installing']
     pass
+
+
+  def update_scenario_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    
+    Scen_row = app_tables.scenario.get(ScenarioID = 1)
+    days_effort_row = app_tables.days_effort.get(Scenario = Scen_row, projects = 'Systems')
+    days_effort_row['PreReqs'] = self.Sys_PR.text
+    days_effort_row['Interfacing'] = self.Sys_Int.text 
+    days_effort_row['System_config'] = self.Sys_Sys.text   
+    days_effort_row['Installing'] = self.Sys_Ins.text
+    
+    days_effort_row = app_tables.days_effort.get(Scenario = Scen_row, projects = 'Standalone Interfaces')
+    days_effort_row['PreReqs'] = self.SI_PR.text
+    days_effort_row['Interfacing'] = self.SI_Int.text 
+    days_effort_row['System_config'] = self.SI_Sys.text   
+    days_effort_row['Installing'] = self.SI_Ins.text   
+
+    constraint_row = app_tables.constraints.get(Scenario = Scen_row, Resource='PreReqs')
+    constraint_row['Constraint'] = self.CON_PR.text
+    constraint_row = app_tables.constraints.get(Scenario = Scen_row, Resource='Interfacing')
+    constraint_row['Constraint'] = self.CON_INT.text
+    constraint_row = app_tables.constraints.get(Scenario = Scen_row, Resource='Systems_config')
+    constraint_row['Constraint'] = self.CON_SYS.text
+    constraint_row = app_tables.constraints.get(Scenario = Scen_row, Resource='Installing')
+    constraint_row['Constraint'] = self.CON_INS.text
+    
+    pass
+
+
+
+ 
 
 

@@ -403,7 +403,10 @@ components:
         col_widths: {}
         grid_position: EEOKZJ,YPMEHW
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: CON_PR
       layout_properties:
         col_widths: {}
@@ -418,11 +421,15 @@ components:
         col_widths: {}
         grid_position: SENQIK,GCZCDE
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: CON_INT
       layout_properties:
         col_widths: {}
         grid_position: SENQIK,ILULWJ
+      event_bindings: {pressed_enter: CON_INT_pressed_enter}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: System Config, font_size: null, font: '', spacing_above: small,
@@ -433,7 +440,10 @@ components:
         col_widths: {}
         grid_position: YHPYJL,CKVJGG
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: CON_SYS
       layout_properties:
         col_widths: {}
@@ -448,7 +458,10 @@ components:
         col_widths: {}
         grid_position: RSCKJJ,LCQLOW
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: CON_INS
       layout_properties:
         col_widths: {}
@@ -479,7 +492,10 @@ components:
         col_widths: {}
         grid_position: QTTALO,ECBLJQ
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: SELL_SYS
       layout_properties:
         col_widths: {}
@@ -494,7 +510,10 @@ components:
         col_widths: {}
         grid_position: LRFLRM,WOWDPV
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: SELL_INT
       layout_properties:
         col_widths: {}
@@ -509,7 +528,10 @@ components:
         col_widths: {}
         grid_position: UFDWEM,PZQJLJ
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: SELL_SM
       layout_properties:
         col_widths: {}
@@ -524,7 +546,10 @@ components:
         col_widths: {}
         grid_position: AYBYMY,DFMASW
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: SELL_UPG
       layout_properties:
         col_widths: {}
@@ -544,14 +569,28 @@ components:
       name: label_6
       layout_properties: {grid_position: 'JKIDSJ,VIXTXE'}
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: Objective
       layout_properties: {grid_position: 'IWUQVC,YDRJIB'}
   - type: Button
-    properties: {text: button_1}
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Create Scenario, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
     name: button_1
     layout_properties: {grid_position: 'AWVYHX,XMYQOK BLKMPM,FTVMMP'}
     event_bindings: {click: button_1_click}
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Update Scenario, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: update_scenario_button
+    layout_properties: {grid_position: 'AWVYHX,XMYQOK MXUFBY,JBMDVS'}
+    event_bindings: {click: update_scenario_button_click}
   - type: ColumnPanel
     properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
@@ -576,7 +615,10 @@ components:
         col_widths: {}
         grid_position: KQIGTT,MHXFOH
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: SYS_PRJ
       layout_properties:
         col_widths: {}
@@ -591,7 +633,10 @@ components:
         col_widths: {}
         grid_position: NPZDVV,VIFPOG
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: INT_PRJ
       layout_properties:
         col_widths: {}
@@ -606,7 +651,10 @@ components:
         col_widths: {}
         grid_position: UWOAGY,WZDFRS
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: SM_PRJ
       layout_properties:
         col_widths: {}
@@ -621,7 +669,10 @@ components:
         col_widths: {}
         grid_position: FPHIXR,EPDWPF
     - type: TextBox
-      properties: {}
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
       name: UPG_PRJ
       layout_properties:
         col_widths: {}
