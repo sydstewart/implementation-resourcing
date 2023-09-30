@@ -60,8 +60,13 @@ class Form2(Form2Template):
                           System_config= UP_Sys,
                           Installing = UP_Ins)
 
+  #====================================================
+  #Populate Form from Tables
+  #==================================================
   def scenario_dropdown_change(self, **event_args):
     """This method is called when an item is selected"""
+    # Days_effort
+    #____________________
     data = app_tables.days_effort.search(Scenario=self.scenario_dropdown.selected_value)
     for row in data:
       print(row['projects'],row['PreReqs'],row['Interfacing'],row['System_config'],row['Installing'])
@@ -89,8 +94,32 @@ class Form2(Form2Template):
         self.UP_Sys.text = row['System_config']
         self.UP_Ins.text = row['Installing']
     pass
+    data = app_tables.constraints.search(Scenario=self.scenario_dropdown.selected_value)
+    for row in data:
+        if row['Resource'] == 'PreReqs':
+             self.CON_PR.text =row['Constraint'] 
+        if row['Resource'] == 'Interfacing':
+             self.CON_INT.text  = row['Constraint']
+        if row['Resource'] == 'Systems_config':
+             self.CON_SYS.text = row['Constraint'] 
+        if row['Resource'] == 'Installing': 
+            self.CON_INS.text = row['Constraint'] 
+    data = app_tables.selling_prices.search(Scenario=self.scenario_dropdown.selected_value)
+    for row in data:
+        if row['projects'] == 'Systems':
+             self.SELL_SYS.text =row['Selling_price'] 
+        if row['projects'] == 'Standalone Interfaces':
+             self.SELL_INT.text  = row['Selling_price']
+        if row['projects'] == 'Server Moves':
+             self.SELL_SM.text = row['Selling_price'] 
+        if row['projects'] == 'Upgrades': 
+            self.SELL_UPG.text = row['Selling_price'] 
 
+#==============================================================
+  # Update Tables from Form
+#==========================================================
 
+  
   def update_scenario_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     
@@ -115,8 +144,23 @@ class Form2(Form2Template):
     constraint_row['Constraint'] = self.CON_SYS.text
     constraint_row = app_tables.constraints.get(Scenario = Scen_row, Resource='Installing')
     constraint_row['Constraint'] = self.CON_INS.text
-    
+
+    selling_price_row = app_tables.selling_prices.get(Scenario = Scen_row, projects='Systems')
+    selling_price_row['Selling_price'] = self.SELL_SYS.text
+    selling_price_row = app_tables.selling_prices.get(Scenario = Scen_row, projects='Standalone Interfaces')
+    selling_price_row['Selling_price'] = self.SELL_INT.text
+    selling_price_row = app_tables.selling_prices.get(Scenario = Scen_row, projects='Server Moves')
+    selling_price_row['Selling_price'] = self.SELL_SM.text
+    selling_price_row = app_tables.selling_prices.get(Scenario = Scen_row, projects='Upgrades')
+    selling_price_row['Selling_price'] = self.SELL_UPG.text
     pass
+
+  def calculate_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    Scen_row = app_tables.scenario.get(ScenarioID = 1)
+    anvil.server.call('calculate_projects', Scen_row)
+    pass
+
 
 
 

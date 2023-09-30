@@ -136,29 +136,70 @@ def resources():
 
    # Constraints
       # 350 economy and 500 premium sausages at 0.05 kg i.e. 50g
-  model += pulp.lpSum([ing_weight['economy', j] for j in ingredients]) == 350 * 0.05
-      model += pulp.lpSum([ing_weight['premium', j] for j in ingredients]) == 500 * 0.05
+  Model += pulp.lpSum([ing_weight['economy', j] for j in ingredients]) == 350 * 0.05
+  model += pulp.lpSum([ing_weight['premium', j] for j in ingredients]) == 500 * 0.05
       
       # Economy has >= 40% pork, premium >= 60% pork
-      model += ing_weight['economy', 'pork'] >= (
-          0.4 * pulp.lpSum([ing_weight['economy', j] for j in ingredients]))
-      model += ing_weight['premium', 'pork'] >= (
-          0.6 * pulp.lpSum([ing_weight['premium', j] for j in ingredients]))
-      
-      # Sausages must be <= 25% starch
-      model += ing_weight['economy', 'starch'] <= (
-          0.25 * pulp.lpSum([ing_weight['economy', j] for j in ingredients]))
-      model += ing_weight['premium', 'starch'] <= (
-          0.25 * pulp.lpSum([ing_weight['premium', j] for j in ingredients]))
-      
-      # We have at most 30 kg of pork, 20 kg of wheat and 17 kg of starch available
-      model += pulp.lpSum([ing_weight[i, 'pork'] for i in sausage_types]) <= 30
-      model += pulp.lpSum([ing_weight[i, 'wheat'] for i in sausage_types]) <= 20
-      model += pulp.lpSum([ing_weight[i, 'starch'] for i in sausage_types]) <= 17
-      
-      # We have at least 23 kg of pork to use up
-      model += pulp.lpSum([ing_weight[i, 'pork'] for i in sausage_types]) >= 23
-            
-      # Solve our problem
-      model.solve()
-      pulp.LpStatus[model.status]
+  model += ing_weight['economy', 'pork'] >= (
+      0.4 * pulp.lpSum([ing_weight['economy', j] for j in ingredients]))
+  model += ing_weight['premium', 'pork'] >= (
+      0.6 * pulp.lpSum([ing_weight['premium', j] for j in ingredients]))
+  
+  # Sausages must be <= 25% starch
+  model += ing_weight['economy', 'starch'] <= (
+      0.25 * pulp.lpSum([ing_weight['economy', j] for j in ingredients]))
+  model += ing_weight['premium', 'starch'] <= (
+      0.25 * pulp.lpSum([ing_weight['premium', j] for j in ingredients]))
+  
+  # We have at most 30 kg of pork, 20 kg of wheat and 17 kg of starch available
+  model += pulp.lpSum([ing_weight[i, 'pork'] for i in sausage_types]) <= 30
+  model += pulp.lpSum([ing_weight[i, 'wheat'] for i in sausage_types]) <= 20
+  model += pulp.lpSum([ing_weight[i, 'starch'] for i in sausage_types]) <= 17
+  
+  # We have at least 23 kg of pork to use up
+  model += pulp.lpSum([ing_weight[i, 'pork'] for i in sausage_types]) >= 23
+        
+  # Solve our problem
+  model.solve()
+  pulp.LpStatus[model.status]
+
+#==========================================================================
+#Do LP calculations
+#=========================================================================
+
+@anvil.server.callable
+def calculate_projects(Scenario):
+
+  # problem = LpProblem('No of Projects', LpMaximize)
+  
+  # Construct decision variables
+  # A = LpVariable('Systems', lowBound=0 , cat=LpInteger)
+  # B = LpVariable('Standalone Interfaces', lowBound=0 , cat=LpInteger)
+  # C = LpVariable('Server Moves', lowBound=0 , cat=LpInteger)
+  # D = LpVariable('Upgrades', lowBound=0 , cat=LpInteger)
+  
+  
+  #Objective Function
+  #get data
+  systems_selling_price = app_tables.selling_prices.get(projects='Systems',Scenario=Scenario)
+  # for row in systems_selling_price:
+  print(systems_selling_price['Selling_price'])
+  Systems_Selling_Price = systems_selling_price['Selling_price']
+  
+  systems_selling_price = app_tables.selling_prices.get(projects='Standalone Interfaces',Scenario=Scenario)
+  # for row in systems_selling_price:
+  print(systems_selling_price['Selling_price'])
+  Standalone_Interfaces_Selling_Price = systems_selling_price['Selling_price']
+  
+  systems_selling_price = app_tables.selling_prices.get(projects='Server Moves',Scenario=Scenario)
+  # for row in systems_selling_price:
+  print(systems_selling_price['Selling_price'])
+  Server_Moves_Selling_Price = systems_selling_price['Selling_price']
+  
+  systems_selling_price = app_tables.selling_prices.get(projects='Upgrades',Scenario=Scenario)
+  # for row in systems_selling_price:
+  print(systems_selling_price['Selling_price'])
+  Upgrades_Selling_Price = systems_selling_price['Selling_price']
+
+  
+  problem += Systems_Selling_Price*A + Standalone_Interfaces_Selling_Price*B  , 'Objective Function'
